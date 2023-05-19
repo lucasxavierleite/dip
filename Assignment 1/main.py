@@ -366,11 +366,7 @@ def rmse(reference, image):
     float
         The root mean squared error.
     '''
-    assert reference.shape == image.shape
-
-    N, M = reference.shape
-
-    return np.sqrt(np.sum(np.square(reference - image)) / (N * M))
+    return np.sqrt(np.square(reference - image).mean())
 
 
 def print_debug(ax, row, original_image, enhanced_image, transformation=None):
